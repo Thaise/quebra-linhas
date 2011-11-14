@@ -11,10 +11,10 @@ public class QuebraLinha {
 		System.out.print("Digite a quantidade de colunas que deseja separar a frase: ");
 		int coluna = entrada.nextInt();
 			
-		Object[] listaPalavras = quebrar(frase,coluna);	
+		Object[] fraseSeparada = quebrar(frase,coluna);	
 		System.out.println("Sua frase: ");
-		for(int i = 0; i < listaPalavras.length; i++){
-			System.out.println(listaPalavras[i]);
+		for(int i = 0; i < fraseSeparada.length; i++){
+			System.out.println(fraseSeparada[i]);
 		}
 		continuar();
 	}
@@ -36,14 +36,14 @@ public class QuebraLinha {
 
 	public static Object[] quebrar(String frase, int coluna){	
 		Vector vectorWorker = new Vector();
-		String[] separa = frase.split(" ");
+		String[] separaFrase = frase.split(" ");
 		String separador = "";
 		
-		for(int i = 0; i < separa.length; i++){
-			if((separador.length() + separa[i].length()) < coluna){
-				separador = separador + separa[i]+" ";
-			}else if((separador.length() + separa[i].length()) == coluna){
-				separador = separador + separa[i];
+		for(int i = 0; i < separaFrase.length; i++){
+			if((separador.length() + separaFrase[i].length()) < coluna){
+				separador = separador + separaFrase[i]+" ";
+			}else if((separador.length() + separaFrase[i].length()) == coluna){
+				separador = separador + separaFrase[i];
 				vectorWorker.add(separador.trim());
 				separador = "";
 			}else{
