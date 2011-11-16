@@ -34,28 +34,28 @@ public class QuebraLinha {
 		}	
 	}
 
-	public static Object[] quebrar(String frase, int coluna){	
+	public static Object[] quebrar(String frase, int coluna){		 
 		Vector fraseSeparada = new Vector();
 		String[] separaFrase = frase.split(" ");
-		String separador = "";
+		String subFrase = "";
 		String espaco = " ";
 		
 		for(int i = 0; i < separaFrase.length; i++){
-			if((separador.length() + separaFrase[i].length() + espaco.length()) <= coluna){
-				if(separador.equals("")){
-					separador = separaFrase[i];
+			if((subFrase.length() + separaFrase[i].length() + espaco.length()) <= coluna){
+				
+				if(subFrase.equals("")){
+					subFrase = separaFrase[i];
 				}else{
-					separador = separador +" "+separaFrase[i];
+					subFrase = subFrase +" "+separaFrase[i];
 				}
 			}else{
-				fraseSeparada.add(separador.trim());
-				separador = separaFrase[i];
+				fraseSeparada.add(subFrase.trim());
+				subFrase = separaFrase[i];
 			}
 		}		
-		fraseSeparada.add(separador.trim());
+		fraseSeparada.add(subFrase.trim());
 		
 		return fraseSeparada.toArray();
-
 	}
 
 }
