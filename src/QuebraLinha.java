@@ -22,20 +22,20 @@ public class QuebraLinha {
 	private static void continuar(){
 		Scanner entrada = new Scanner(System.in);
 		
-		System.out.print("Quebrar outra frase? Digite S para SIM ou N para N√O: ");
+		System.out.print("Quebrar outra frase? Digite S para SIM ou N para N√ÉO: ");
 		String continua = entrada.nextLine(); 
 		if(continua.equalsIgnoreCase("S")){
 			main(null);
 		}else if(continua.equalsIgnoreCase("N")){
-			System.out.print("VocÍ escolheu parar por aqui. AtÈ a prÛxima!");
+			System.out.print("Voc√™ escolheu parar por aqui. At√© a pr√≥xima!");
 		}else{
-			System.out.print("OpÁ„o inv·lida! Digite S para SIM ou N para N√O: ");
+			System.out.print("Op√ß√£o inv√°lida! Digite S para SIM ou N para N√ÉO: ");
 			main(null);
 		}	
 	}
 
 	public static Object[] quebrar(String frase, int coluna){	
-		Vector vectorWorker = new Vector();
+		Vector fraseSeparada = new Vector();
 		String[] separaFrase = frase.split(" ");
 		String separador = "";
 		
@@ -44,17 +44,17 @@ public class QuebraLinha {
 				separador = separador + separaFrase[i]+" ";
 			}else if((separador.length() + separaFrase[i].length()) == coluna){
 				separador = separador + separaFrase[i];
-				vectorWorker.add(separador.trim());
+				fraseSeparada.add(separador.trim());
 				separador = "";
 			}else{
-				vectorWorker.add(separador.trim());
+				fraseSeparada.add(separador.trim());
 				separador = "";
 				i--;
 			}
 		}		
-		vectorWorker.add(separador.trim());
+		fraseSeparada.add(separador.trim());
 		
-		return vectorWorker.toArray();
+		return fraseSeparada.toArray();
 
 	}
 
