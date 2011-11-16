@@ -38,18 +38,18 @@ public class QuebraLinha {
 		Vector fraseSeparada = new Vector();
 		String[] separaFrase = frase.split(" ");
 		String separador = "";
+		String espaco = " ";
 		
 		for(int i = 0; i < separaFrase.length; i++){
-			if((separador.length() + separaFrase[i].length()) < coluna){
-				separador = separador + separaFrase[i]+" ";
-			}else if((separador.length() + separaFrase[i].length()) == coluna){
-				separador = separador + separaFrase[i];
-				fraseSeparada.add(separador.trim());
-				separador = "";
+			if((separador.length() + separaFrase[i].length() + espaco.length()) <= coluna){
+				if(separador.equals("")){
+					separador = separaFrase[i];
+				}else{
+					separador = separador +" "+separaFrase[i];
+				}
 			}else{
 				fraseSeparada.add(separador.trim());
-				separador = "";
-				i--;
+				separador = separaFrase[i];
 			}
 		}		
 		fraseSeparada.add(separador.trim());
