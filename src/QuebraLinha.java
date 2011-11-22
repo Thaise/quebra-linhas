@@ -29,8 +29,15 @@ public class QuebraLinha {
 		}else if(continua.equalsIgnoreCase("N")){
 			System.out.print("Você escolheu parar por aqui. Até a próxima!");
 		}else{
-			System.out.print("Opção inválida! Digite S para SIM ou N para NÃO: ");
-			main(null);
+			while(!(continua.equals("n"))&&(!(continua.equals("s")))){
+				System.out.print("Opção inválida! Quebrar outra frase? Digite S para SIM ou N para NÃO: ");
+				continua = entrada.nextLine();
+				if(continua.equalsIgnoreCase("n")){
+					System.out.print("Você escolheu parar por aqui. Até a próxima! ");
+				}else if(continua.equalsIgnoreCase("s")){
+					main(null);
+				}	
+			}
 		}	
 	}
 
@@ -41,8 +48,7 @@ public class QuebraLinha {
 		String espaco = " ";
 		
 		for(int i = 0; i < separaFrase.length; i++){
-			if((subFrase.length() + separaFrase[i].length() + espaco.length()) <= coluna){
-				
+			if((subFrase.length() + separaFrase[i].length() + espaco.length()) <= coluna){			
 				if(subFrase.equals("")){
 					subFrase = separaFrase[i];
 				}else{
